@@ -32,22 +32,25 @@ const Navbar = () => {
       initial={{ opacity: 0, y: -24 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
-      className="fixed inset-x-0 top-0 z-30 flex justify-center px-4 py-4"
+      className="fixed inset-x-0 top-0 z-30 flex justify-center px-2 py-2 sm:px-4 sm:py-4"
+      
     >
-      <div className="flex w-full max-w-6xl items-center justify-between rounded-2xl border border-white/10 bg-slate-900/80 px-6 py-4 backdrop-blur-2xl">
+    
+          <div className="flex w-full max-w-6xl items-center justify-between gap-2 rounded-2xl border border-white/10 bg-slate-900/80 px-3 py-2.5 sm:px-6 sm:py-4 backdrop-blur-2xl">
         <Link
           to="/"
-          className="text-lg font-semibold tracking-tight text-white"
+           className="text-sm sm:text-lg font-semibold tracking-tight text-white whitespace-nowrap"
         >
           Labhanshu Gupta
         </Link>
 
-        <nav className="flex items-center gap-1 text-sm font-medium text-slate-200">
+       
+            <nav className="flex items-center gap-0.5 sm:gap-1 text-xs sm:text-sm font-medium text-slate-200">
           {navItems.map((item) => (
             <Link
               key={item.label}
               to={item.path}
-              className={`rounded-full px-4 py-2 transition-colors ${
+              className={`rounded-full px-2 py-1.5 sm:px-4 sm:py-2 transition-colors ${
                 location.pathname === item.path
                   ? 'bg-white/10 text-white'
                   : 'text-slate-300 hover:bg-white/5'
