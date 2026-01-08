@@ -49,7 +49,8 @@ const Hero = () => {
             transition={{ delay: 0.4, duration: 0.7 }}
             className="text-base text-slate-300"
           >
-            Designing resilient MERN backends and fluid React interfaces for fast-moving teams. I build performant, scalable, and maintainable applications that deliver SaaS-grade experiences on every screen.
+           I build cloud-native, production-grade MERN platforms with a focus on real-time systems, horizontal scalability, and performance engineering.
+           Leveraging Docker, Redis, RabbitMQ, and AWS, I deliver sub-300ms APIs that scale to 1,000+ concurrent users, integrating payment pipelines and AI-powered services end-to-end.
           </MotionParagraph>
 
           <div className="flex flex-wrap gap-4 pt-4">
