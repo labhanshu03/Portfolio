@@ -5,7 +5,7 @@ export const projects = [
     shortDescription: 'Speech-powered e-commerce platform with secure payments',
     longDescription:
       'Conversational shopping experience where shoppers browse, curate, and checkout hands-free using speech commands, backed by airtight payments and a rich admin console built on the MERN stack.',
-    url: 'https://one-cart-frontendtwo.onrender.com/',
+    url: 'https://www.youtube.com/watch?v=xCxhdaigVmI',
     highlights: ['Voice commerce', 'Secure checkout', 'admin panel'],
   },
   {
