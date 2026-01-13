@@ -88,9 +88,9 @@ const Hero = () => {
               <ul className="mt-3 space-y-2 text-slate-100">
                <li> • Event-driven MERN systems with async workflows </li>
                <li> • Real-time collaboration using Socket.IO & Redis Pub/Sub </li>
-               <li> • Scalable React applications with centralized state management </li>
+               <li> • Scalable React applications with centralized state    management </li>
                <li> • High-throughput Node.js APIs optimized for low latency </li>
-               <li> • MongoDB systems tuned with indexing, caching, and query optimization </li>
+               <li> • MongoDB systems tuned with indexing, caching, and    query optimization </li>
 
               </ul>
             </div>
