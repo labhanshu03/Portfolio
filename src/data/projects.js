@@ -13,7 +13,7 @@ export const projects = [
     title: 'OneCart',
     shortDescription: 'Voice-Enabled E-Commerce Platform with Async Order Processing',
     longDescription:
-      'Conversational shopping experience where shoppers browse, curate, and checkout hands-free using speech commands, backed by airtight payments and a rich admin console built on the MERN stack.',
+      'A full-scale MERN e-commerce platform featuring voice-enabled shopping and asynchronous order workflows. Deployed on AWS EC2 with NGINX as a reverse proxy, the system uses RabbitMQ for background email processing and Razorpay for secure payments. Optimized React flows reduced navigation time while ensuring a reliable, production-grade checkout experience.',
     url: 'https://www.youtube.com/watch?v=xCxhdaigVmI',
     highlights: ['Voice commerce', 'Secure checkout', 'admin panel'],
   },
