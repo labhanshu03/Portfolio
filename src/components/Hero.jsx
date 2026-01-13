@@ -86,11 +86,11 @@ const Hero = () => {
                 Strengths
               </p>
               <ul className="mt-3 space-y-2 text-slate-100">
-                <li>• Event-driven MERN stacks</li>
-                <li>• Real-time collaboration features</li>
-                <li>• Production-grade React systems</li>
-                <li>• Scalable backend APIs built with Node.js & Express</li>
-                <li>• High-performance MongoDB & Express backends</li>
+               <li> • Event-driven MERN systems with async workflows </li>
+               <li> • Real-time collaboration using Socket.IO & Redis Pub/Sub </li>
+               <li> • Scalable React applications with centralized state management </li>
+               <li> • High-throughput Node.js APIs optimized for low latency </li>
+               <li> • MongoDB systems tuned with indexing, caching, and query optimization </li>
 
               </ul>
             </div>
