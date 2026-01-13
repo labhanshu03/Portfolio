@@ -25,8 +25,8 @@ export const projects = [
       'AWS EC2 + NGINX',
       'RabbitMQ async workflows',
       'Razorpay payment integration',
-      'Voice-based shopping',
-      'Production-grade MERN stack'
+      'Voice-based navigation',
+     
     ],
   },
   {
