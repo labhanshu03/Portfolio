@@ -4,7 +4,7 @@ export const projects = [
     title: 'EchoRoom',
     shortDescription: 'Horizontally Scaled Real-Time Messaging System',
     longDescription:
-      'Latency-optimized chat spaces for distributed teams powered by Socket.IO, offering snappy message delivery, group threads, and a modern interface that stays perfectly in sync.',
+      'A production-ready real-time group chat platform designed for horizontal scalability. Built with Socket.IO and Redis Pub/Sub to synchronize messages across multiple servers, supporting 1,000+ concurrent users with low-latency delivery. Dockerized services ensure consistent deployments, while efficient state management keeps conversations perfectly in sync.',
     url: 'https://echo-room-frontend1.onrender.com/auth',
     highlights: ['Socket.IO realtime', 'Group conversations', 'File & media sharing'],
   },
