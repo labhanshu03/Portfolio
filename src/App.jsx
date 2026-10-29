@@ -1,24 +1,38 @@
-import { Route, Routes } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Home from './pages/Home';
-import Projects from './pages/Projects';
+import { LazyMotion, MotionConfig, domAnimation } from 'framer-motion';
+import Achievements from './components/sections/Achievements';
+import Contact from './components/sections/Contact';
+import Education from './components/sections/Education';
+import Experience from './components/sections/Experience';
+import Footer from './components/sections/Footer';
+import Hero from './components/sections/Hero';
+import Navbar from './components/sections/Navbar';
+import OpenSource from './components/sections/OpenSource';
+import Projects from './components/sections/Projects';
+import Skills from './components/sections/Skills';
 
-const App = () => {
-  return (
-    <div className="min-h-screen bg-brand-dark text-slate-100 font-body">
-      <div className="pointer-events-none fixed inset-0 -z-10 bg-hero-glow" />
-      <div className="pointer-events-none fixed inset-0 -z-20 bg-[radial-gradient(circle_at_top,rgba(94,92,230,0.15),transparent_55%)]" />
+const App = () => (
+  <LazyMotion features={domAnimation} strict>
+    <MotionConfig reducedMotion="user">
+      <a
+        href="#main"
+        className="sr-only z-50 rounded-md bg-ink px-4 py-2 text-bg focus:not-sr-only focus:fixed focus:left-4 focus:top-4"
+      >
+        Skip to content
+      </a>
       <Navbar />
-      <main className="relative z-10 px-4 pb-20 pt-28 sm:px-6">
-        <div className="mx-auto max-w-6xl space-y-20">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/projects" element={<Projects />} />
-          </Routes>
-        </div>
+      <main id="main">
+        <Hero />
+        <Experience />
+        <Projects />
+        <OpenSource />
+        <Skills />
+        <Education />
+        <Achievements />
+        <Contact />
       </main>
-    </div>
-  );
-};
+      <Footer />
+    </MotionConfig>
+  </LazyMotion>
+);
 
 export default App;

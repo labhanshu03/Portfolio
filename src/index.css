@@ -1,32 +1,73 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Design tokens — RGB channels so Tailwind opacity modifiers work. */
 :root {
-  color: #e2e8f0;
-  background-color: #030712;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --bg: 250 250 248;
+  --surface: 255 255 255;
+  --subtle: 243 243 239;
+  --ink: 14 14 16;
+  --muted: 95 95 102;
+  --line: 228 228 222;
+  --accent: 43 70 255;
+  --accent-ink: 255 255 255;
+  --ok: 20 134 74;
+  --nav-height: 4rem;
+  color-scheme: light;
 }
 
-body {
-  margin: 0;
-  min-height: 100vh;
-  background-color: #030712;
-  color: #e2e8f0;
-  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    sans-serif;
+:root[data-theme='dark'] {
+  --bg: 11 11 12;
+  --surface: 20 20 22;
+  --subtle: 26 26 29;
+  --ink: 237 237 235;
+  --muted: 154 154 162;
+  --line: 38 38 43;
+  --accent: 138 155 255;
+  --accent-ink: 11 11 12;
+  --ok: 61 214 140;
+  color-scheme: dark;
 }
 
-#root {
-  min-height: 100vh;
+@layer base {
+  html {
+    @apply bg-bg text-ink antialiased;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    scroll-padding-top: calc(var(--nav-height) + 1rem);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  body {
+    @apply min-h-screen bg-bg font-sans text-[15px] leading-relaxed text-ink sm:text-base;
+  }
+
+  ::selection {
+    @apply bg-accent/20 text-ink;
+  }
+
+  :focus-visible {
+    @apply rounded-sm outline outline-2 outline-offset-2 outline-accent;
+  }
 }
 
-::selection {
-  background: rgba(127, 90, 240, 0.35);
-  color: #f8fafc;
+@layer components {
+  .page {
+    @apply mx-auto w-full max-w-page px-4 sm:px-8;
+  }
+
+  .eyebrow {
+    @apply font-mono text-xs uppercase tracking-[0.14em] text-muted;
+  }
+
+  /* Underline that draws in from the left on hover. */
+  .link-underline {
+    @apply bg-gradient-to-r from-current to-current bg-[length:0%_1px] bg-left-bottom bg-no-repeat transition-[background-size] duration-300 ease-out-expo hover:bg-[length:100%_1px];
+  }
 }

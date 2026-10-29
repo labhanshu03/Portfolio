@@ -1,31 +1,43 @@
 /** @type {import('tailwindcss').Config} */
+const token = (name) => `rgb(var(--${name}) / <alpha-value>)`;
+
 export default {
-  content: ['./index.html', './src/**/*.{js,jsx,ts,tsx}'],
+  content: ['./index.html', './src/**/*.{js,jsx}'],
+  darkMode: ['selector', '[data-theme="dark"]'],
   theme: {
     extend: {
       fontFamily: {
-        display: ['Space Grotesk', 'sans-serif'],
-        body: ['Inter', 'system-ui', 'sans-serif'],
+        sans: ['Geist', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        mono: ['"Geist Mono"', 'ui-monospace', 'SFMono-Regular', 'monospace'],
       },
       colors: {
-        brand: {
-          dark: '#0B1120',
-          accent: '#5E5CE6',
-          highlight: '#7F5AF0',
+        bg: token('bg'),
+        surface: token('surface'),
+        subtle: token('subtle'),
+        ink: token('ink'),
+        muted: token('muted'),
+        line: token('line'),
+        accent: token('accent'),
+        'accent-ink': token('accent-ink'),
+        ok: token('ok'),
+      },
+      maxWidth: {
+        page: '72rem',
+      },
+      transitionTimingFunction: {
+        'out-expo': 'cubic-bezier(0.16, 1, 0.3, 1)',
+      },
+      keyframes: {
+        flow: {
+          '0%': { transform: 'translateY(0)', opacity: '0' },
+          '25%, 75%': { opacity: '1' },
+          '100%': { transform: 'translateY(23px)', opacity: '0' },
         },
       },
-      backgroundImage: {
-        'hero-glow':
-          'radial-gradient(circle at 20% 20%, rgba(127,90,240,0.35), transparent 50%), radial-gradient(circle at 80% 0%, rgba(94,92,230,0.3), transparent 45%)',
-        'card-glass':
-          'linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02))',
-      },
-      boxShadow: {
-        glow: '0 20px 45px rgba(15,23,42,0.45)',
-        card: '0 20px 40px rgba(15, 23, 42, 0.15)',
+      animation: {
+        flow: 'flow 1.8s cubic-bezier(0.65, 0, 0.35, 1) infinite',
       },
     },
   },
   plugins: [],
 };
-

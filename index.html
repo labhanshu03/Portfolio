@@ -2,9 +2,70 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>portfolio</title>
+    <title>Labhanshu Gupta — Software Engineer</title>
+    <meta
+      name="description"
+      content="Labhanshu Gupta is a software engineer (IIIT Bhopal '26) building full-stack web apps — React frontends, distributed backends, real-time systems and AI-powered products. Ex-SDE Intern at Refold AI."
+    />
+    <meta name="author" content="Labhanshu Gupta" />
+    <meta name="theme-color" content="#FAFAF8" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0B0B0C" media="(prefers-color-scheme: dark)" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Labhanshu Gupta — Software Engineer" />
+    <meta
+      property="og:description"
+      content="Full-stack engineer: React frontends, distributed backends, real-time systems and AI products. Ex-SDE Intern at Refold AI · IIIT Bhopal '26."
+    />
+    <meta property="og:url" content="https://portfolio-234u.onrender.com/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Labhanshu Gupta — Software Engineer" />
+    <meta
+      name="twitter:description"
+      content="Full-stack engineer: React frontends, distributed backends, real-time systems and AI products."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap"
+    />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Labhanshu Gupta",
+        "jobTitle": "Software Engineer",
+        "email": "mailto:labhgupta444@gmail.com",
+        "url": "https://portfolio-234u.onrender.com/",
+        "address": { "@type": "PostalAddress", "addressLocality": "Bengaluru", "addressCountry": "IN" },
+        "alumniOf": { "@type": "CollegeOrUniversity", "name": "Indian Institute of Information Technology, Bhopal" },
+        "sameAs": [
+          "https://github.com/labhanshu03",
+          "https://www.linkedin.com/in/labhanshu/",
+          "https://leetcode.com/u/labhanshu/",
+          "https://www.codechef.com/users/labhanshu1"
+        ]
+      }
+    </script>
+
+    <script>
+      (function () {
+        var theme = 'light';
+        try {
+          var stored = localStorage.getItem('theme');
+          if (stored === 'light' || stored === 'dark') theme = stored;
+          else if (window.matchMedia('(prefers-color-scheme: dark)').matches) theme = 'dark';
+        } catch (e) {
+          if (window.matchMedia('(prefers-color-scheme: dark)').matches) theme = 'dark';
+        }
+        document.documentElement.dataset.theme = theme;
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
