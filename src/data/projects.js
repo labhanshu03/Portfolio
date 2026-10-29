@@ -1,6 +1,9 @@
 /**
  * @typedef {{ live?: string, github?: string, video?: string }} ProjectLinks
- * @typedef {{ label: string, nodes: string[] }} DiagramLayer
+ * A layer shows either a row of `nodes`, or `branches`: services the layer above
+ * connects to directly and in parallel. `edge` labels the link from the layer above.
+ * @typedef {{ name: string, note: string }} DiagramBranch
+ * @typedef {{ label: string, edge?: string, nodes?: string[], branches?: DiagramBranch[] }} DiagramLayer
  * @typedef {{
  *   id: string,
  *   name: string,
@@ -42,9 +45,15 @@ export const featuredProjects = [
     },
     diagram: [
       { label: 'Clients · React + Zustand', nodes: ['Client', 'Client', 'Client'] },
-      { label: 'Socket.IO cluster', nodes: ['Node 1', 'Node 2', 'Node 3', 'Node 4'] },
-      { label: 'Event bus', nodes: ['Redis Pub/Sub'] },
-      { label: 'Data + AI', nodes: ['MongoDB', 'RAG · FastAPI + Ollama'] },
+      { label: 'Socket.IO cluster', edge: 'WebSocket', nodes: ['Node 1', 'Node 2', 'Node 3', 'Node 4'] },
+      {
+        label: 'Each node connects to',
+        branches: [
+          { name: 'Redis Pub/Sub', note: 'fan-out between nodes' },
+          { name: 'MongoDB', note: 'persists messages' },
+          { name: 'RAG service', note: 'FastAPI + Ollama' },
+        ],
+      },
     ],
   },
   {
@@ -72,9 +81,15 @@ export const featuredProjects = [
     },
     diagram: [
       { label: 'Frontends', nodes: ['Storefront', 'Admin panel'] },
-      { label: 'Edge · AWS EC2', nodes: ['NGINX'] },
-      { label: 'Services', nodes: ['Express API', 'Razorpay'] },
-      { label: 'Async', nodes: ['RabbitMQ → Email worker'] },
+      { label: 'AWS EC2 · Docker Compose', edge: 'HTTPS', nodes: ['NGINX → Express API'] },
+      {
+        label: 'API connects to',
+        branches: [
+          { name: 'MongoDB', note: 'orders & products' },
+          { name: 'Razorpay', note: 'create & verify payments' },
+          { name: 'RabbitMQ', note: 'queue → email worker' },
+        ],
+      },
     ],
   },
 ];
