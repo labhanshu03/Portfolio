@@ -9,8 +9,7 @@
       content="Labhanshu Gupta is a software engineer (IIIT Bhopal '26) building full-stack web apps — React frontends, distributed backends, real-time systems and AI-powered products. Ex-SDE Intern at Refold AI."
     />
     <meta name="author" content="Labhanshu Gupta" />
-    <meta name="theme-color" content="#FAFAF8" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#0B0B0C" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#0B0B0C" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
     <meta property="og:type" content="website" />
@@ -55,13 +54,13 @@
 
     <script>
       (function () {
-        var theme = 'light';
+        // Dark by default; a choice made with the theme toggle overrides it.
+        var theme = 'dark';
         try {
           var stored = localStorage.getItem('theme');
           if (stored === 'light' || stored === 'dark') theme = stored;
-          else if (window.matchMedia('(prefers-color-scheme: dark)').matches) theme = 'dark';
         } catch (e) {
-          if (window.matchMedia('(prefers-color-scheme: dark)').matches) theme = 'dark';
+          // Storage blocked (private mode) — keep the default.
         }
         document.documentElement.dataset.theme = theme;
       })();
