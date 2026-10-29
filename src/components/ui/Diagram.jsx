@@ -6,7 +6,11 @@ const labelClass = 'font-mono text-[10px] uppercase tracking-[0.14em] text-muted
 const Connector = ({ edge, className = 'my-1' }) => (
   <div aria-hidden="true" className={`relative mx-auto h-7 w-px bg-line ${className}`}>
     <span className="absolute -left-[2px] top-0 h-[5px] w-[5px] rounded-full bg-accent motion-safe:animate-flow motion-reduce:hidden" />
-    {edge && <span className={`${labelClass} absolute left-3 top-1/2 -translate-y-1/2 whitespace-nowrap normal-case tracking-normal`}>{edge}</span>}
+    {edge && (
+      <span className="absolute left-3 top-1/2 -translate-y-1/2 whitespace-nowrap font-mono text-[10px] text-muted">
+        {edge}
+      </span>
+    )}
   </div>
 );
 
@@ -39,29 +43,48 @@ const BranchRow = ({ branches }) => {
   );
 };
 
-/** Layered architecture sketch: stacked layers, optionally ending in parallel branches. */
-const Diagram = ({ title, layers }) => (
+const Layer = ({ layer, isFirst }) => {
+  if (layer.branches) {
+    // Label first so the line runs unbroken from the layer above into the branch bar.
+    return (
+      <>
+        <p className={`${labelClass} mt-3 text-center`}>{layer.label}</p>
+        <Connector edge={layer.edge} className="mt-1" />
+        <BranchRow branches={layer.branches} />
+      </>
+    );
+  }
+  return (
+    <>
+      {!isFirst && <Connector edge={layer.edge} />}
+      <p className={`${labelClass} mb-2 text-center`}>{layer.label}</p>
+      <NodeRow nodes={layer.nodes} />
+    </>
+  );
+};
+
+/** Architecture sketch made of one or more labelled flows, each a stack of layers. */
+const Diagram = ({ title, flows }) => (
   <figure className="rounded-xl border border-line bg-surface p-5 sm:p-6">
-    <ol aria-label={`${title} architecture, top to bottom`}>
-      {layers.map((layer, index) => (
-        <li key={layer.label}>
-          {layer.branches ? (
-            // Label first so the line runs unbroken from the layer above into the branch bar.
-            <>
-              <p className={`${labelClass} mt-3 text-center`}>{layer.label}</p>
-              <Connector edge={layer.edge} className="mt-1" />
-              <BranchRow branches={layer.branches} />
-            </>
-          ) : (
-            <>
-              {index > 0 && <Connector edge={layer.edge} />}
-              <p className={`${labelClass} mb-2 text-center`}>{layer.label}</p>
-              <NodeRow nodes={layer.nodes} />
-            </>
-          )}
-        </li>
-      ))}
-    </ol>
+    {flows.map((flow, flowIndex) => (
+      <section
+        key={flow.title}
+        aria-label={`${title}: ${flow.title}`}
+        className={flowIndex > 0 ? 'mt-6 border-t border-line pt-5' : ''}
+      >
+        <p className="mb-4 font-mono text-[11px] text-ink">
+          <span className="text-accent">{String(flowIndex + 1).padStart(2, '0')}</span> {flow.title}
+        </p>
+        <ol>
+          {flow.layers.map((layer, index) => (
+            <li key={layer.label}>
+              <Layer layer={layer} isFirst={index === 0} />
+            </li>
+          ))}
+        </ol>
+        {flow.note && <p className="mt-4 text-[11px] leading-relaxed text-muted">{flow.note}</p>}
+      </section>
+    ))}
     <figcaption className={`${labelClass} mt-5 border-t border-line pt-3`}>System sketch</figcaption>
   </figure>
 );

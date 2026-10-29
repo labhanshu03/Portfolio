@@ -79,7 +79,7 @@ const FeaturedProject = ({ project, index, isLead }) => (
 
         <div className="space-y-4 lg:col-span-5 lg:col-start-8 lg:row-start-2 lg:self-start">
           {project.image && <BrowserFrame image={project.image} url={project.links.live} />}
-          <Diagram title={project.name} layers={project.diagram} />
+          <Diagram title={project.name} flows={project.diagram} />
         </div>
       </div>
     </article>
