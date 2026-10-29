@@ -101,7 +101,7 @@ export const moreProjects = [
   {
     name: 'Jarvis',
     summary:
-      'Voice-driven assistant built on the Gemini API — answers questions, searches Google and YouTube, opens apps and fetches the weather from spoken commands.',
+      'Voice-driven assistant built on the Gemini API — answers questions, searches Google and YouTube, opens websites and fetches the weather from spoken commands.',
     stack: ['MERN', 'Gemini API', 'Web Speech'],
     links: {
       live: 'https://virtualassistant-jqph.onrender.com/signin',
